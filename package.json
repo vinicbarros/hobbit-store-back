@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "ttsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
     "dev": "nodemon --watch \"src/\" --exec \"ts-node -r tsconfig-paths/register ./src/server.ts\" -e ts",
     "husky:prepare": "husky install",
     "lint:staged": "lint-staged",
@@ -27,6 +30,9 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "ts-jest": "^29.0.5",
-    "typescript": "^5.0.2"
+    "tsconfig-paths": "^4.1.2",
+    "ttypescript": "^1.5.15",
+    "typescript": "^5.0.2",
+    "typescript-transform-paths": "^3.4.6"
   }
 }

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "module": "commonjs",
+      "rootDirs": ["src", "tests"],
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "useUnknownInCatchVariables": false,
+      "lib": ["ES2021.String"],
+      "paths": {
+        "@/*": ["*"]
+      },
+      "plugins": [
+        {
+          "transform": "typescript-transform-paths"
+        }
+      ],
+      "baseUrl": "src"
+    },
+    "include": ["src", "tests"]
+  }

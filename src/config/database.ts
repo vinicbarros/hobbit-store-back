@@ -3,9 +3,9 @@ import { loadEnv } from "./env";
 
 loadEnv();
 
-export const connectDB = async (): Promise<void> => {
-  const client = new MongoClient(process.env.MONGODB_URI);
+const client = new MongoClient(process.env.MONGODB_URI);
 
+export const connectDB = async (): Promise<void> => {
   try {
     await client.connect();
     console.log("Mongo conectado!");
@@ -13,3 +13,5 @@ export const connectDB = async (): Promise<void> => {
     console.log(error);
   }
 };
+
+export const database = client.db();

@@ -10,3 +10,9 @@ export async function createProduct(req: Request, res: Response) {
 
   return res.sendStatus(httpStatus.OK);
 }
+
+export async function getProducts(req: Request, res: Response) {
+  const result = await productService.getAllProducts();
+
+  return res.status(httpStatus.OK).send(result);
+}

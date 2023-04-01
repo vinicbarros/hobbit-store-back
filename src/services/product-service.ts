@@ -9,8 +9,15 @@ async function addProduct(data: CreateProductParams) {
   return await productRepository.mongoInsertProduct(data);
 }
 
+async function getAllProducts() {
+  const products = await productRepository.mongoFindProducts();
+
+  return products;
+}
+
 const productService = {
   addProduct,
+  getAllProducts,
 };
 
 export { productService };

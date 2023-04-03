@@ -1,4 +1,4 @@
-import { badRequestError } from "@/errors";
+import { badRequestError, notFoundError } from "@/errors";
 import { productRepository } from "@/repositories";
 import { CreateProductParams } from "@/schemas/protocols";
 
@@ -21,10 +21,18 @@ async function getProductsByCategory(category: string) {
   return products;
 }
 
+async function getSingleProduct(productId: string) {
+  const product = await productRepository.mongoFindProductById(productId);
+  if (!product) throw notFoundError();
+
+  return product;
+}
+
 const productService = {
   addProduct,
   getAllProducts,
   getProductsByCategory,
+  getSingleProduct,
 };
 
 export { productService };

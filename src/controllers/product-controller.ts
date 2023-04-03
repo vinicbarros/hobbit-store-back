@@ -23,3 +23,10 @@ export async function getProductsOfCategory(req: Request, res: Response) {
   const result = await productService.getProductsByCategory(category);
   return res.status(httpStatus.OK).send(result);
 }
+
+export async function getProduct(req: Request, res: Response) {
+  const productId = req.params.productId as string;
+
+  const result = await productService.getSingleProduct(productId);
+  return res.status(httpStatus.OK).send(result);
+}

@@ -1,4 +1,9 @@
-import { addProductToCart, getCart, getFingerPrint } from "@/controllers";
+import {
+  addProductToCart,
+  getCart,
+  getFingerPrint,
+  removeProductToCart,
+} from "@/controllers";
 import { authenticateFingerprint } from "@/middlewares";
 import { Router } from "express";
 
@@ -8,6 +13,7 @@ cartRouter
   .get("/fingerprint", getFingerPrint)
   .use(authenticateFingerprint)
   .post("/", addProductToCart)
-  .get("/", getCart);
+  .get("/", getCart)
+  .delete("/:itemId", removeProductToCart);
 
 export { cartRouter };

@@ -24,10 +24,15 @@ async function getCartByFingerprint(fingerprint: string) {
   return cart;
 }
 
+async function removeToCart(id: string, fingerprint: string) {
+  return await cartRepository.mongoRemoveFromCart(fingerprint, id);
+}
+
 const cartService = {
   handleFingerprint,
   addToCart,
   getCartByFingerprint,
+  removeToCart,
 };
 
 export { cartService };

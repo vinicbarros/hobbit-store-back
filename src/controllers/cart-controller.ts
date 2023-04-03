@@ -24,3 +24,12 @@ export async function getCart(req: AuthenticatedRequest, res: Response) {
   const result = cartService.getCartByFingerprint(fingerprint);
   return res.status(httpStatus.OK).send(result);
 }
+
+export async function removeProductToCart(req: AuthenticatedRequest, res: Response) {
+  const { id } = req.params;
+  const { fingerprint } = req;
+
+  await cartService.removeToCart(id, fingerprint);
+
+  return res.status(httpStatus.OK).send({ message: "Item deleted from the cart." });
+}

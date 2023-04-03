@@ -18,9 +18,16 @@ async function addToCart(productId: string, fingerprint: string) {
   await cartRepository.mongoInsertIntoCart(fingerprint, product);
 }
 
+async function getCartByFingerprint(fingerprint: string) {
+  const cart = await cartRepository.mongoFindCartByFingerprint(fingerprint);
+
+  return cart;
+}
+
 const cartService = {
   handleFingerprint,
   addToCart,
+  getCartByFingerprint,
 };
 
 export { cartService };

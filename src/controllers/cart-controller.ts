@@ -17,3 +17,10 @@ export async function addProductToCart(req: AuthenticatedRequest, res: Response)
 
   return res.sendStatus(httpStatus.OK);
 }
+
+export async function getCart(req: AuthenticatedRequest, res: Response) {
+  const { fingerprint } = req;
+
+  const result = cartService.getCartByFingerprint(fingerprint);
+  return res.status(httpStatus.OK).send(result);
+}

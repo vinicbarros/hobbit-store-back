@@ -19,9 +19,14 @@ async function mongoInsertIntoCart(
   });
 }
 
+async function mongoFindCartByFingerprint(fingerprint: string): Promise<Cart[]> {
+  return await database.collection<Cart>("cart").find({ fingerprint }).toArray();
+}
+
 const cartRepository = {
   mongoInsertFingerprint,
   mongoInsertIntoCart,
+  mongoFindCartByFingerprint,
 };
 
 export { cartRepository };

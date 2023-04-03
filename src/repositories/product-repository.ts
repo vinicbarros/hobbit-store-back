@@ -24,12 +24,20 @@ async function mongoFindProductById(productId: string) {
   return await database.collection<Omit<Product, "_id">>("products").findOne({ _id });
 }
 
+async function mongoSearchProductInsensitive(name: string): Promise<Product[]> {
+  return await database
+    .collection<Product>("products")
+    .find({ name: `/^${name}$/i` })
+    .toArray();
+}
+
 const productRepository = {
   mongoInsertProduct,
   mongoFindProductByName,
   mongoFindProducts,
   mongoFindProductsOfCategory,
   mongoFindProductById,
+  mongoSearchProductInsensitive,
 };
 
 export { productRepository };

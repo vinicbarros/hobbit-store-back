@@ -1,33 +1,16 @@
 import { ApplicationError } from "@/errors";
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
+import { MongoError } from "mongodb";
 
 export function handleApplicationErrors(
-  err: ApplicationError | Error,
+  err: ApplicationError | Error | MongoError,
   req: Request,
   res: Response,
   next: NextFunction
 ) {
   if (err.name === "BadRequestError") {
     return res.status(httpStatus.BAD_REQUEST).send({
-      message: err.message,
-    });
-  }
-
-  if (err.name === "DuplicatedEmailError") {
-    return res.status(httpStatus.CONFLICT).send({
-      message: err.message,
-    });
-  }
-
-  if (err.name == "InvalidCredentialsError") {
-    return res.status(httpStatus.UNAUTHORIZED).send({
-      message: err.message,
-    });
-  }
-
-  if (err.name === "ConflictError") {
-    return res.status(httpStatus.CONFLICT).send({
       message: err.message,
     });
   }
@@ -40,6 +23,12 @@ export function handleApplicationErrors(
 
   if (err.name === "UnauthorizedError") {
     return res.status(httpStatus.UNAUTHORIZED).send({
+      message: err.message,
+    });
+  }
+
+  if (err.message) {
+    return res.status(httpStatus.BAD_REQUEST).send({
       message: err.message,
     });
   }

@@ -15,9 +15,16 @@ async function getAllProducts() {
   return products;
 }
 
+async function getProductsByCategory(category: string) {
+  const products = await productRepository.mongoFindProductsOfCategory(category);
+
+  return products;
+}
+
 const productService = {
   addProduct,
   getAllProducts,
+  getProductsByCategory,
 };
 
 export { productService };

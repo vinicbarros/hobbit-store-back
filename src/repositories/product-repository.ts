@@ -25,9 +25,10 @@ async function mongoFindProductById(productId: string) {
 }
 
 async function mongoSearchProductInsensitive(name: string): Promise<Product[]> {
+  await database.collection("products").createIndex({ name: 1 });
   return await database
     .collection<Product>("products")
-    .find({ name: `/^${name}$/i` })
+    .find({ name: { $regex: new RegExp("^" + name + ".*", "i") } })
     .toArray();
 }
 

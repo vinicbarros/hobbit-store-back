@@ -10,7 +10,7 @@ export async function getFingerPrint(req: Request, res: Response) {
 }
 
 export async function addProductToCart(req: AuthenticatedRequest, res: Response) {
-  const { productId } = req.body;
+  const { productId } = req.params;
   const { fingerprint } = req;
 
   await cartService.addToCart(productId, fingerprint);
@@ -21,15 +21,15 @@ export async function addProductToCart(req: AuthenticatedRequest, res: Response)
 export async function getCart(req: AuthenticatedRequest, res: Response) {
   const { fingerprint } = req;
 
-  const result = cartService.getCartByFingerprint(fingerprint);
+  const result = await cartService.getCartByFingerprint(fingerprint);
   return res.status(httpStatus.OK).send(result);
 }
 
 export async function removeProductToCart(req: AuthenticatedRequest, res: Response) {
-  const { id } = req.params;
+  const { itemId } = req.params;
   const { fingerprint } = req;
 
-  await cartService.removeToCart(id, fingerprint);
+  await cartService.removeToCart(itemId, fingerprint);
 
   return res.status(httpStatus.OK).send({ message: "Item deleted from the cart." });
 }

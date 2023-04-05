@@ -12,7 +12,7 @@ const cartRouter = Router();
 cartRouter
   .get("/fingerprint", getFingerPrint)
   .use(authenticateFingerprint)
-  .post("/", addProductToCart)
+  .post("/:productId", addProductToCart)
   .get("/", getCart)
   .delete("/:itemId", removeProductToCart);
 

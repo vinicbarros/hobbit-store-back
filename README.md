@@ -4,7 +4,7 @@
 <h3 align=center>Aplicativo Web de um E-Commerce | Projeto Back-End</h3>
 <hr>
 <h4 align=center>Um projeto completo de E-Commerce feito com React.js baseado no universo de Senhor dos Anéis!</h4>
-<h4 align=center>Esse repositório é apenas o front-end, você pode encontrar o back-end no meu perfil.</h4>
+<h4 align=center>Esse repositório é apenas o back-end, você pode encontrar o front-end no meu perfil.</h4>
 <br>
 Esse projeto é parte de um processo seletivo da MyPharma para a vaga de Engenheiro de Software.
 

@@ -1,4 +1,4 @@
-import { notFoundError } from "@/errors";
+import { notFoundError, unauthorizedError } from "@/errors";
 import { cartRepository, productRepository } from "@/repositories";
 import { v4 as uuidv4 } from "uuid";
 
@@ -25,7 +25,10 @@ async function getCartByFingerprint(fingerprint: string) {
 }
 
 async function removeToCart(id: string, fingerprint: string) {
-  return await cartRepository.mongoRemoveFromCart(fingerprint, id);
+  const cartId = await cartRepository.mongoFindIdFromCart(id);
+  if (cartId.fingerprint !== fingerprint) throw unauthorizedError();
+
+  await cartRepository.mongoRemoveFromCart(fingerprint, id);
 }
 
 const cartService = {

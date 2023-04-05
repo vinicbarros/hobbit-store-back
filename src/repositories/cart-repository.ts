@@ -23,6 +23,11 @@ async function mongoFindCartByFingerprint(fingerprint: string): Promise<Cart[]> 
   return await database.collection<Cart>("cart").find({ fingerprint }).toArray();
 }
 
+async function mongoFindIdFromCart(id: string) {
+  const _id = new ObjectId(id);
+  return await database.collection<Omit<Cart, "_id">>("cart").findOne({ _id });
+}
+
 async function mongoRemoveFromCart(fingerprint: string, id: string) {
   const _id = new ObjectId(id);
   return await database.collection("cart").deleteOne({ fingerprint, _id });
@@ -33,6 +38,7 @@ const cartRepository = {
   mongoInsertIntoCart,
   mongoFindCartByFingerprint,
   mongoRemoveFromCart,
+  mongoFindIdFromCart,
 };
 
 export { cartRepository };

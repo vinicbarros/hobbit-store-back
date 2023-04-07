@@ -46,7 +46,7 @@ O objetivo do projeto técnico era criar um E-Commerce full stack com React + No
 2. Vá para o diretório do projeto
 
 ```bash
-  cd hobbit-store-back0
+  cd hobbit-store-back
 ```
 
 3. Instale as dependências

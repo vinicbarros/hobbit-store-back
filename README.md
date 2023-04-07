@@ -72,7 +72,7 @@ O objetivo do projeto técnico era criar um E-Commerce full stack com React + No
   MONGODB_URI=mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_URL}/${MONGODB_DATABASE}
 ```
 
-5. Se caso você estiver usando MongoDB Atlas, apenas copie a connection string e cole na variável `MONGODB_URI` do `.env.prod`.
+5. Se caso você estiver usando MongoDB Atlas, apenas copie a connection string e cole na variável `MONGODB_URI` do `.env.dev`.
 
 6. Após certificar que preencheu todas as variáveis corretamente, rode a aplicação: 
 

@@ -55,7 +55,7 @@ O objetivo do projeto técnico era criar um E-Commerce full stack com React + No
   npm install
 ```
 
-4. Crie e popule o arquivo `.env.prod` de acordo com a instrução passada no `.env.example`, se você não popular o `.env.prod`, sua aplicação 
+4. Crie e popule o arquivo `.env.dev` de acordo com a instrução passada no `.env.example`, se você não popular o `.env.dev`, sua aplicação 
 *NÃO* vai rodar. Se você tem dúvidas de como preencher a connection string do MongoDB, confira este artigo: 
 <a href="https://naiveskill.com/mongodb-connection-string/">Connection String.</a>
 
@@ -93,7 +93,7 @@ O objetivo do projeto técnico era criar um E-Commerce full stack com React + No
 2. Vá para o diretório do projeto
 
 ```bash
-  cd hobbit-store-back0
+  cd hobbit-store-back
 ```
 
 3. Instale as dependências
@@ -110,7 +110,7 @@ O objetivo do projeto técnico era criar um E-Commerce full stack com React + No
   docker-compose up -d
 ```
 
-5. Crie e popule o arquivo `.env.prod` de acordo com a instrução passada no `.env.example`, se você não popular o `.env.prod`, sua aplicação 
+5. Crie e popule o arquivo `.env.dev` de acordo com a instrução passada no `.env.example`, se você não popular o `.env.dev`, sua aplicação 
 *NÃO* vai rodar. Se você tem dúvidas de como preencher a connection string do MongoDB, confira este artigo: 
 <a href="https://naiveskill.com/mongodb-connection-string/">Connection String.</a>
 

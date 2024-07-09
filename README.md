@@ -6,19 +6,6 @@
 <h4 align=center>Um projeto completo de E-Commerce feito com React.js baseado no universo de Senhor dos Anéis!</h4>
 <h4 align=center>Esse repositório é apenas o back-end, você pode encontrar o front-end no meu perfil.</h4>
 <br>
-Esse projeto é parte de um processo seletivo da MyPharma para a vaga de Engenheiro de Software.
-
-O objetivo do projeto técnico era criar um E-Commerce full stack com React + Node + MongoDB.
-
-## Requisitos do case:
-
-- [x] Search por nome do produto
-- [x] Tela de detalhes do produto
-- [x] Filtro por categoria
-- [x] Ordenação (ex: Menor preço, maior preço)
-- [x] Botão de adicionar e remover do carrinho de comprar
-- [x] Carrinho de compras   
-- [x] Testes unitários
 
 ## Funcionalidades da API:
 
